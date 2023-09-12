@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tattaraa
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tattaraa
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: tattaraa
+    spec:
+      containers:
+        - name: tattaraa
+          image: docker.io/tanuuidp/demo:0.0.1
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
+          resources:
+            limits:
+              cpu: 500m
+              memory: 512M
+            requests:
+              cpu: 200m
+              memory: 256M
